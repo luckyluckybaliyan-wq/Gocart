@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GoCart — your everyday shopping destination." />
+  <title>GoCart | Shop Smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="announcement">Free shipping on orders over ₹999 <span>•</span> Easy 7-day returns</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="GoCart home"><span class="brand-mark">G</span> GoCart<span class="brand-dot">.</span></a>
+    <form class="search" id="searchForm" role="search">
+      <span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search products, brands and more..." aria-label="Search products" />
+      <button type="submit">Search</button>
+    </form>
+    <div class="header-actions">
+      <button class="icon-button account-button" id="accountButton" aria-label="Account">♙ <span>Account</span></button>
+      <button class="icon-button cart-button" id="openCart" aria-label="Open cart">🛒 <span>Cart</span><b id="cartCount">0</b></button>
+    </div>
+  </header>
+  <nav class="category-nav" aria-label="Product categories">
+    <button class="nav-category active" data-category="All">All products</button>
+    <button class="nav-category" data-category="Electronics">Electronics</button>
+    <button class="nav-category" data-category="Fashion">Fashion</button>
+    <button class="nav-category" data-category="Home">Home & Living</button>
+    <button class="nav-category" data-category="Beauty">Beauty</button>
+    <button class="nav-category" data-category="Sports">Sports</button>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> THE EVERYDAY EDIT</p>
+        <h1>Good finds.<br><span>Great prices.</span></h1>
+        <p class="hero-description">Meet your new favourite way to shop. Discover thoughtful picks for every part of your life.</p>
+        <a class="primary-button" href="#products">Explore collection <span>↗</span></a>
+        <div class="hero-proof"><div class="avatar-stack"><i>☺</i><i>✦</i><i>●</i></div><span><strong>25k+</strong> happy shoppers</span></div>
+      </div>
+      <div class="hero-art" aria-label="Featured shopping collection">
+        <div class="hero-orb"></div>
+        <div class="hero-card card-back"><span>NEW SEASON</span><strong>Everyday<br>essentials</strong></div>
+        <div class="hero-product product-bag">👜</div>
+        <div class="hero-product product-headphones">🎧</div>
+        <div class="hero-product product-sneaker">👟</div>
+        <div class="floating-tag"><span>✦</span><div><strong>Little things,</strong><br>big joy.</div></div>
+        <div class="hero-spark spark-one">✳</div><div class="hero-spark spark-two">✦</div>
+      </div>
+    </section>
+    <section class="benefits" aria-label="Shopping benefits">
+      <div><span class="benefit-icon">↗</span><p><strong>Fast delivery</strong><small>At your doorstep, quickly</small></p></div>
+      <div><span class="benefit-icon">♡</span><p><strong>Made for you</strong><small>Curated everyday favourites</small></p></div>
+      <div><span class="benefit-icon">⌂</span><p><strong>Easy returns</strong><small>Simple, no-stress returns</small></p></div>
+      <div><span class="benefit-icon">♧</span><p><strong>Secure checkout</strong><small>Your details stay protected</small></p></div>
+    </section>
+    <section class="products-section" id="products">
+      <div class="section-heading"><div><p class="eyebrow">THE GOOD STUFF</p><h2>Popular right now<span>.</span></h2><p class="section-subtitle">Little upgrades that make a big difference.</p></div>
+        <label class="sort-label">Sort by <select id="sortSelect"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option></select></label>
+      </div>
+      <div class="filter-row"><span id="resultCount">Showing all products</span><button id="clearFilters" class="text-button">Clear filters ×</button></div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><span>⌕</span><h3>No products found</h3><p>Try another search or category.</p><button class="primary-button" id="resetSearch">Show all products</button></div>
+    </section>
+    <section class="newsletter">
+      <div><p class="eyebrow">A LITTLE GOOD IN YOUR INBOX</p><h2>Stay in the loop<span>.</span></h2><p>Get first dibs on new arrivals, special offers and more.</p></div>
+      <form id="newsletterForm"><label class="sr-only" for="emailInput">Email address</label><input type="email" id="emailInput" placeholder="Your email address" required><button type="submit">Join the list ↗</button><small id="newsletterMessage">No spam. Just the good stuff.</small></form>
+      <div class="newsletter-decoration">✳</div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#"><span class="brand-mark">G</span> GoCart<span class="brand-dot">.</span></a><p>Good finds for everyday life.</p><div class="footer-links"><a href="#products">Shop</a><a href="#products">Best sellers</a><a href="mailto:hello@gocart.example">Contact</a></div><small>© <span id="year"></span> GoCart. Demo storefront for learning projects.</small></footer>
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">YOUR BAG</p><h2>Your cart <span id="drawerCount">(0)</span></h2></div><button class="close-button" id="closeCart" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>🛍️</span><h3>Your cart is taking a nap.</h3><p>Add something lovely to get started.</p><button class="primary-button" id="continueShopping">Keep browsing</button></div>
+    <div class="cart-footer hidden" id="cartFooter"><div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="checkout-button" id="checkoutButton">Continue to checkout <span>→</span></button><small>🔒 Secure checkout · Demo only</small></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
